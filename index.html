@@ -12,6 +12,9 @@
     <!-- app VUE  -->
     <div id="myApp">
 
+        <input type="text" placeholder="Inserisci un nuovo elemento." v-model="newTask.text" @keyup.enter="addItem">
+        <button @click="addItem">Aggiungi elemento</button>
+
         <ul>
             <li v-for="task, i in tasks" :key="i">
                 <span class="delete" @click="removeItem(i)">&cross;</span>

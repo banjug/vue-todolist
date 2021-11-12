@@ -2,6 +2,10 @@ var app = new Vue(
     {
         el: '#myApp',
         data: {
+            newTask: {
+                text: '',
+                done: false
+            },
             tasks: [
                 {
                     text: 'fare la spesa',
@@ -22,7 +26,7 @@ var app = new Vue(
                 {
                     text: 'fare la lavatrice',
                     done: false
-                }
+                },
             ]
         },
         methods: {
@@ -35,6 +39,10 @@ var app = new Vue(
             },
             removeItem(index){
                 this.tasks.splice(index, 1);
+            },
+            addItem(){
+                this.tasks.push(this.newTask);
+                this.newTask.text = '';
             }
         }
     }
