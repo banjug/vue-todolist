@@ -9,8 +9,15 @@
 </head>
 <body>
     
+    <!-- app VUE  -->
     <div id="myApp">
-        
+
+        <ul>
+            <li v-for="task, i in tasks" :key="i">
+                {{task.text}}
+            </li>
+        </ul>
+
     </div>
 
 
