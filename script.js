@@ -49,7 +49,7 @@ var app = new Vue(
             // aggiunge nuova task 
             addItem(){
                 this.tasks.push(this.newTask);
-                this.newTask.text = '';
+                this.newTask = {text: '',done: false};
             }
         }
     }
