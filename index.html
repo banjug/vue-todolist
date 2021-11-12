@@ -10,25 +10,31 @@
 <body>
     
     <!-- app VUE  -->
-    <div id="myApp">
+    <div id="myApp" class="main">
+
+        <h1>TODO List</h1>
 
         <!-- salva il testo con v-model  -->
-        <input type="text" placeholder="Inserisci un nuovo elemento." v-model="newTask.text" @keyup.enter="addItem">
-        <button @click="addItem">Aggiungi elemento</button>
+        <div class="input-cont">
+            <input type="text" placeholder="Inserisci un nuovo elemento." v-model="newTask.text" @keyup.enter="addItem">
+            <button @click="addItem">Aggiungi</button>
+        </div>
 
         <!-- se la lista è vuota mostra un messaggio -->
-        <div v-if="tasks.length === 0">
-            Non hai più niente da fare, complimenti!
+        <div class="task-cont">
+            <div v-if="tasks.length === 0">
+                Non hai più niente da fare, complimenti!
+            </div>
+            <ul v-else>
+                <!-- stampa tutte le task nell'array di oggetti -->
+                <li v-for="task, i in tasks" :key="i" :class="i % 2 === 0 ? 'back-blue' : '' ">
+                    <!-- se cliccato appare la riga sul testo  -->
+                    <span @click="doneItem(i)" class="list-item" :class="task.done === true ? 'crossed' : '' ">{{task.text}}</span>
+                    <!-- se cliccato cancella il task  -->
+                    <span class="delete" @click="removeItem(i)">&Cross;</span>
+                </li>
+            </ul>
         </div>
-        <ul v-else>
-            <!-- stampa tutte le task nell'array di oggetti -->
-            <li v-for="task, i in tasks" :key="i">
-                <!-- se cliccato cancella il task  -->
-                <span class="delete" @click="removeItem(i)">&cross;</span>
-                <!-- se cliccato appare la riga sul testo  -->
-                <span @click="doneItem(i)" :class="task.done === true ? 'crossed' : '' ">{{task.text}}</span>
-            </li>
-        </ul>
 
     </div>
 

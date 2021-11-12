@@ -12,7 +12,7 @@ var app = new Vue(
             tasks: [
                 {
                     text: 'fare la spesa',
-                    done: true
+                    done: false
                 },
                 {
                     text: 'portare fuori la spazzatura',
@@ -20,7 +20,7 @@ var app = new Vue(
                 },
                 {
                     text: 'bagnare i fiori',
-                    done: true
+                    done: false
                 },
                 {
                     text: 'pagare le bollette',
@@ -48,8 +48,10 @@ var app = new Vue(
             },
             // aggiunge nuova task 
             addItem(){
-                this.tasks.push(this.newTask);
-                this.newTask = {text: '',done: false};
+                if (this.newTask.text[0] !== ' ' && this.newTask.text.length > 0) {
+                    this.tasks.push(this.newTask);
+                    this.newTask = {text: '',done: false};
+                }
             }
         }
     }

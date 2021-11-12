@@ -1,11 +1,87 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    text-align: center;
+    font-size: 3rem;
+    padding: 50px 0;
+    width: 100%;
+    background-color: steelblue;
+    color: white;
+    margin-bottom: 50px;
+}
+
+.input-cont {
+    margin-bottom: 50px;
+    width: 40%;
+    text-align: center;
+}
+
+.input-cont * {
+    height: 2rem;
+    border-radius: 10px;
+    border: 1px solid steelblue;
+}
+
+.input-cont input {
+    width: 70%;
+    padding-left: 10px;
+}
+
+.input-cont button {
+    width: 20%;
+}
+
+.task-cont {
+    width: 40%;
+}
+
+ul {
+    list-style: none;
+}
+
+li {
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
 span {
+    line-height: 3rem;
+    vertical-align: middle;
     cursor: pointer;
 }
 
+.list-item:hover {
+    text-decoration: line-through;
+}
+
 .delete {
-    font-size: 1.5rem;
+    font-size: 2.5rem;
+    transition: all .1s ease;
+}
+
+.delete:hover {
+    font-size: 3rem;
+    color: red;
 }
 
 .crossed {
     text-decoration: line-through;
+}
+
+.back-blue {
+    background-color: steelblue;
+    color: white;
+    border-radius: 10px;
 }
