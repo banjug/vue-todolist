@@ -13,10 +13,9 @@
     <div id="myApp">
 
         <ul>
-            <li v-for="task, i in tasks" :key="i" :class="task.done === true ? 'crossed' : '' ">
-                <span @click="doneItem(i)">&check;</span>
-                <span @click="removeItem(i)">&cross;</span>
-                {{task.text}}
+            <li v-for="task, i in tasks" :key="i">
+                <span class="delete" @click="removeItem(i)">&cross;</span>
+                <span @click="doneItem(i)" :class="task.done === true ? 'crossed' : '' ">{{task.text}}</span>
             </li>
         </ul>
 

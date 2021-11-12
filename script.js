@@ -26,6 +26,13 @@ var app = new Vue(
             ]
         },
         methods: {
+            doneItem(index){
+                if(this.tasks[index].done === true) {
+                    this.tasks[index].done = false;
+                } else {
+                    this.tasks[index].done = true;
+                }                
+            },
             removeItem(index){
                 this.tasks.splice(index, 1);
             }
