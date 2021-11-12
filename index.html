@@ -16,7 +16,10 @@
         <input type="text" placeholder="Inserisci un nuovo elemento." v-model="newTask.text" @keyup.enter="addItem">
         <button @click="addItem">Aggiungi elemento</button>
 
-        <ul>
+        <div v-if="tasks.length === 0">
+            Non hai più niente da fare, complimenti!
+        </div>
+        <ul v-else>
             <!-- stampa tutte le task nell'array di oggetti -->
             <li v-for="task, i in tasks" :key="i">
                 <!-- se cliccato cancella il task  -->
