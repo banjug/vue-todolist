@@ -24,6 +24,11 @@ var app = new Vue(
                     done: false
                 }
             ]
+        },
+        methods: {
+            removeItem(index){
+                this.tasks.splice(index, 1);
+            }
         }
     }
 );
